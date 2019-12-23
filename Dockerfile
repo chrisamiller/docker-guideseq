@@ -51,7 +51,7 @@ RUN rm -rf /tmp/bwa
 # ##############
 #guideseq
 RUN cd /opt && \
-    git clone https://github.com/aryeelab/guideseq.git && \
+    git clone --recursive https://github.com/aryeelab/guideseq.git && \
     cd /opt/guideseq/ && \
     pip install numpy && \
     pip install -r requirements.txt
