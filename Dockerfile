@@ -34,6 +34,20 @@ RUN git clone https://github.com/arq5x/bedtools2.git && \
     make && \
     ln -s /usr/local/bedtools2/bin/* /usr/local/bin/
 
+###########################
+# bwa
+WORKDIR /tmp
+RUN git clone https://github.com/lh3/bwa.git
+WORKDIR /tmp/bwa
+RUN git checkout v0.7.15
+# Compile
+RUN make
+RUN cp -p bwa /usr/local/bin
+# Cleanup
+WORKDIR /tmp/
+RUN rm -rf /tmp/bwa
+
+
 # ##############
 #guideseq
 RUN cd /opt && \
